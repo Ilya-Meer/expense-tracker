@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export default class Header extends Component {
+export default class Header extends Component {  
   render() {
     const StyledHeader = styled.header`
       width: 100%;
@@ -29,15 +30,16 @@ export default class Header extends Component {
       align-items: center;
     `;
 
-    const Li = styled.li`
-      display: inline;
-      margin: 0 1rem;
-      color: ${props => props.primary ? "black" : "magenta"}
-      cursor: pointer;
-      &:hover {
-        color: red;
-      }
-    `
+    const NavLinkStyle = {
+      display: "inline",
+      margin: "0 1rem",
+      color: "magenta", 
+      textDecoration: 'none', 
+    }
+
+    const NavLinkActiveStyle = {
+      color: "#001d48",
+    }
 
     const h1style = {
       paddingLeft: "2rem", 
@@ -47,11 +49,37 @@ export default class Header extends Component {
     return (
       <StyledHeader>
         <StyledNav>
-          <h1 style={h1style}>Exp3nse Tr@ck3r</h1>
+            <NavLink
+              exact={true}
+              to="/"
+              style={NavLinkStyle}
+              activeClassName="selected"
+              activeStyle={NavLinkActiveStyle}>
+                <h1 style={h1style}>Exp3nse Tr@ck3r</h1>
+            </NavLink>
+          
           <StyledList>
-            <Li primary>New Expense</Li>
-            <Li>View All Expenses</Li>
-            <Li>Help Page</Li>
+            <NavLink
+              to="/create"
+              style={NavLinkStyle}
+              activeClassName="selected"
+              activeStyle={NavLinkActiveStyle}>
+                Add Expense
+            </NavLink>
+            <NavLink
+              to="/edit"
+              style={NavLinkStyle}
+              activeClassName="selected"
+              activeStyle={NavLinkActiveStyle}>
+                View All
+            </NavLink>
+            <NavLink
+              to="/help"
+              style={NavLinkStyle}
+              activeClassName="selected"
+              activeStyle={NavLinkActiveStyle}>
+                Help
+            </NavLink>
           </StyledList>
         </StyledNav>
       </StyledHeader>
