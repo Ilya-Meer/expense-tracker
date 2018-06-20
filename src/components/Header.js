@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -65,13 +64,6 @@ export default class Header extends Component {
               activeClassName="selected"
               activeStyle={NavLinkActiveStyle}>
                 Add Expense
-            </NavLink>
-            <NavLink
-              to="/edit"
-              style={NavLinkStyle}
-              activeClassName="selected"
-              activeStyle={NavLinkActiveStyle}>
-                View All
             </NavLink>
             <NavLink
               to="/help"

@@ -23,3 +23,5 @@ ehthumbs.db
 # Ignore packages #
 # =============== #
 node_modules/
+
+src/playground/
