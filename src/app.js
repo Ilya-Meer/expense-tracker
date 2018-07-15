@@ -16,15 +16,6 @@ store.dispatch(addExpense({desc: 'gas bill', amount: 5, createdAt: 10}))
 store.dispatch(addExpense({desc: 'water bill', amount: 4, createdAt: 20}))
 store.dispatch(addExpense({desc: 'phone bill', amount: 30, createdAt: 30}))
 store.dispatch(addExpense({desc: 'power bill', amount: 2, createdAt: 40}))
-
-store.dispatch(filters.addTextFilter('bill'));
-
-store.dispatch(filters.sortByDate());
-
-const state = store.getState();
-console.log(getVisibleExpenses(state.expenses, state.filters))
-
-
  
 
 const jsx = (

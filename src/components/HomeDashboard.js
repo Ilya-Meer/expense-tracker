@@ -6,8 +6,6 @@ const HomeDashboard = () => (
   <div>
     <p>I am the home route!</p>
     <ExpenseList />
-
-
     <ExpenseListFilters />
   </div>
 );

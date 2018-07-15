@@ -13,7 +13,7 @@ export const addExpense = ({desc = '', note = '', amount = 0, createdAt = 0 } = 
   }
 }
 
-export const removeExpense = ({expense}) => {
+export const removeExpense = (expense) => {
   return {
     type: 'REMOVE_EXPENSE',
     payload: expense.id
