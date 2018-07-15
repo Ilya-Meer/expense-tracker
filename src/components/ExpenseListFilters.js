@@ -12,11 +12,10 @@ const ExpenseListFilters = (props) => {
           props.dispatch(addTextFilter(e.target.value))
         }}
       />
-
       <select 
         name="sortByFilter" 
-        defaultValue="none"
         id="sortByFilter" 
+        defaultValue="none"
         onChange={(e) => {
           if ( e.target.value === "date") {
             props.dispatch(sortByDate())
