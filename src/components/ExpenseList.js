@@ -12,7 +12,6 @@ const StyledExpenseList = styled.div`
 
 const ExpenseList = (props) => {
   
-
   return (
     <StyledExpenseList>
       <h1>Expense List</h1>
