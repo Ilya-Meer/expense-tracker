@@ -28,13 +28,15 @@ class ExpenseForm extends Component {
     })
   }
   handleAmount(e) {
-    const amount = e.target.value
-    this.setState(() => {
-      return {
-        ...this.state, 
-        amount
-      }
-    })
+    const amount = e.target.value;
+    if (amount.match(/^\d*(\.\d{0,2})?$/)) {
+      this.setState(() => {
+        return {
+          ...this.state, 
+          amount
+        }
+      })
+    }
   }
   handleNote(e) {
     const note = e.target.value
@@ -53,7 +55,7 @@ class ExpenseForm extends Component {
           this.props.dispatch(addExpense(this.state))
         }}>
         <input autoFocus type="text" name="desc" placeholder="description" value={this.state.desc} onChange={this.handleDescription}/>
-        <input type="number" name="amount" placeholder="amount" value={this.state.amount} onChange={this.handleAmount}/>
+        <input type="text" name="amount" placeholder="amount" value={this.state.amount} onChange={this.handleAmount}/>
         <textarea name="note" id="note" cols="30" rows="10" placeholder="Add a note for your expense" value={this.state.note} onChange={this.handleNote}></textarea>
         <input type="submit" value="Submit"/>
       </form>
