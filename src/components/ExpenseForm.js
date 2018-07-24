@@ -19,10 +19,10 @@ class ExpenseForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      desc: '', 
-      amount: '',
-      note: '',
-      createdAt: moment(),
+      desc: props.expense ? props.expense.desc : '', 
+      amount: props.expense ? (props.expense.amount/100).toString() : '',
+      note: props.expense ? props.expense.note : '',
+      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       calendarFocused: false,
       error: ''
     }
