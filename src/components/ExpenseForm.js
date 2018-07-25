@@ -11,9 +11,6 @@ import { SingleDatePicker } from 'react-dates';
 // import 'react-dates/lib/css/_datepicker.css';
 
 
-const now = moment().format('MMM Do, YYYY'); 
-console.log(now);
-
 
 class ExpenseForm extends Component {
   constructor(props) {
@@ -98,7 +95,7 @@ class ExpenseForm extends Component {
         desc: this.state.desc,
         amount: parseFloat(this.state.amount, 10) * 100,
         note: this.state.note,
-        createdAt: this.state.createdAt.unix()
+        createdAt: this.state.createdAt
       })
     }
   }

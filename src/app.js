@@ -28,4 +28,4 @@ const jsx = (
 
 
 const root = document.getElementById('root');
-render(jsx, root);  
+render(jsx, root);   

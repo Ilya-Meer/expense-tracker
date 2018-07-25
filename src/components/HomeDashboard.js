@@ -5,8 +5,8 @@ import ExpenseListFilters from './ExpenseListFilters';
 const HomeDashboard = () => (
   <div>
     <p>I am the home route!</p>
-    <ExpenseList />
     <ExpenseListFilters />
+    <ExpenseList />
   </div>
 );
 

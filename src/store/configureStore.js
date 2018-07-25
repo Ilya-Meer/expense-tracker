@@ -6,6 +6,9 @@ import * as filterActions from '../actions/filterActions';
 
 
 export default () => {
-  const store = createStore(rootReducer);
+  const store = createStore(rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
   return store;
 }
+
+
