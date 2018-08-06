@@ -1,4 +1,4 @@
-export const addTextFilter = (filter) => {
+export const addTextFilter = (filter = '') => {
   return {
     type: 'ADD_TEXT_FILTER', 
     payload: filter

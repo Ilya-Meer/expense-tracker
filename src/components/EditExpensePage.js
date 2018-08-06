@@ -8,7 +8,6 @@ import { editExpense, removeExpense } from '../actions/expenseActions';
 
 
 const EditExpensePage = (props) => {
-  console.log(props)
   return (
     <div>
       <ExpenseForm

@@ -45,7 +45,6 @@ class ExpenseListFilters extends Component {
           id="sortByFilter" 
           defaultValue="none"
           onChange={(e) => {
-            console.log(e.target.value);
             if ( e.target.value === "date") {
               this.props.dispatch(sortByDate())
             } else {
