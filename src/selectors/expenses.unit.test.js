@@ -1,8 +1,6 @@
 import getVisibleExpenses from './expenses';
 import moment from 'moment';
 
-
-
 const expenses = [
   {
     id: '1',
@@ -26,8 +24,6 @@ const expenses = [
     createdAt: moment(0).subtract('4', 'days').valueOf()
   }
 ]
-
-
 
 describe('getVisibleExpenses filter function', () => {
   it('filters expenses by text value', () => {

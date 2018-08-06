@@ -16,7 +16,7 @@ describe('set end date filter action creator', () => {
       type: 'SET_END_DATE', 
       payload: moment(0)
     })
-  })
+  }) 
 })
 
 describe('Set Text Filter Action Creator', () => {

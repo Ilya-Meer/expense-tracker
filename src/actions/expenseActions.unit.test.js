@@ -11,7 +11,7 @@ describe('Add Expense Action Creator', () => {
         createdAt: 100
       }
       const addAction = addExpense({...obj});
-  
+   
       expect(addAction).toEqual({
         type: 'ADD_EXPENSE', 
         expense: {
