@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Help Page renders properly 1`] = `
+<div>
+  <p>
+    I am the Help Page route!
+  </p>
+</div>
+`;

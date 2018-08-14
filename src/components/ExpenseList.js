@@ -10,15 +10,19 @@ const StyledExpenseList = styled.div`
 `
 
 
-const ExpenseList = (props) => {
+export const ExpenseList = (props) => {
   
   return (
     <StyledExpenseList>
       <h1>Expense List</h1>
       <div>
-        {props.expenses.map(expense => {
-          return  <ExpenseListItem key={expense.id} {...expense} />
-        })}
+        {props.expenses.length === 0 ? (
+          <p>Add an Expense!</p>
+         ) : (
+          props.expenses.map(expense => {
+            return  <ExpenseListItem key={expense.id} {...expense} />
+          }))
+        } 
       </div>
     </StyledExpenseList>
   )

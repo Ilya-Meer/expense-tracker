@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component renders properly 1`] = `
+<styled.header>
+  <styled.nav>
+    <NavLink
+      activeClassName="selected"
+      activeStyle={
+        Object {
+          "color": "#001d48",
+        }
+      }
+      aria-current="page"
+      exact={true}
+      style={
+        Object {
+          "color": "magenta",
+          "display": "inline",
+          "margin": "0 1rem",
+          "textDecoration": "none",
+        }
+      }
+      to="/"
+    >
+      <h1
+        style={
+          Object {
+            "fontSize": "16px",
+            "paddingLeft": "2rem",
+          }
+        }
+      >
+        Exp3nse Tr@ck3r
+      </h1>
+    </NavLink>
+    <styled.ul>
+      <NavLink
+        activeClassName="selected"
+        activeStyle={
+          Object {
+            "color": "#001d48",
+          }
+        }
+        aria-current="page"
+        style={
+          Object {
+            "color": "magenta",
+            "display": "inline",
+            "margin": "0 1rem",
+            "textDecoration": "none",
+          }
+        }
+        to="/create"
+      >
+        Add Expense
+      </NavLink>
+      <NavLink
+        activeClassName="selected"
+        activeStyle={
+          Object {
+            "color": "#001d48",
+          }
+        }
+        aria-current="page"
+        style={
+          Object {
+            "color": "magenta",
+            "display": "inline",
+            "margin": "0 1rem",
+            "textDecoration": "none",
+          }
+        }
+        to="/help"
+      >
+        Help
+      </NavLink>
+    </styled.ul>
+  </styled.nav>
+</styled.header>
+`;

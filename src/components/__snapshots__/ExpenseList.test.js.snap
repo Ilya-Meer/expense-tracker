@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expense List should render expense list with expenses 1`] = `
+<styled.div>
+  <h1>
+    Expense List
+  </h1>
+  <div>
+    <ExpenseListItem
+      amount="2000000"
+      createdAt={"1970-01-01T00:00:00.000Z"}
+      desc="Rent"
+      id="3"
+      key="3"
+      note="The rent was not cheap either"
+    />
+  </div>
+</styled.div>
+`;
+
+exports[`Expense List should render expense list with prompt if given no expenses 1`] = `
+<styled.div>
+  <h1>
+    Expense List
+  </h1>
+  <div>
+    <p>
+      Add an Expense!
+    </p>
+  </div>
+</styled.div>
+`;

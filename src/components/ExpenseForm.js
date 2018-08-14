@@ -4,13 +4,7 @@ import { connect } from 'react-redux';
 import { addExpense } from '../actions/expenseActions';
 import moment from 'moment';
 
-
-// import DatePicker from 'react-datepicker';
-
 import { SingleDatePicker } from 'react-dates';
-// import 'react-dates/lib/css/_datepicker.css';
-
-
 
 class ExpenseForm extends Component {
   constructor(props) {
@@ -113,10 +107,7 @@ class ExpenseForm extends Component {
           onFocusChange={this.handleFocusChange}
           numberOfMonths={1}
           isOutsideRange={() => false}
-          displayFormat='MMMM Do, YYYY'
-          // dateFormat="LL"
-          // selected={this.state.createdAt}
-          // onChange={this.handleDate}
+          displayFormat='MMMM Do, YYYY' 
         />
 
 
@@ -128,4 +119,4 @@ class ExpenseForm extends Component {
 }
 
 
-export default connect()(ExpenseForm);
+export default ExpenseForm;
