@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
-    "build:dev": "webpack",
+    "start": "node server/server.js",
+    "build:dev": "webpack-dev-server --open --mode development",
     "build:prod": "webpack -p --env production",
-    "test": "jest --config=jest.config.json"
+    "test": "jest --config=jest.config.json",
+    "heroku-postbuild": "npm run build:prod"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +29,7 @@
   },
   "dependencies": {
     "css-loader": "^0.28.11",
+    "express": "^4.16.3",
     "jest-cli": "^23.1.0",
     "moment": "^2.22.2",
     "node-sass": "^4.9.0",
