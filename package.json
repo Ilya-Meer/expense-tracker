@@ -11,7 +11,7 @@
     "build:dev": "webpack-dev-server --open --mode development",
     "build:prod": "webpack -p --env production",
     "test": "jest --config=jest.config.json",
-    "heroku-prebuild" : "npm install",
+    "heroku-prebuild": "npm install",
     "heroku-postbuild": "npm run build:prod"
   },
   "keywords": [],
@@ -52,6 +52,9 @@
     "style-loader": "^0.21.0",
     "styled-components": "^3.3.2",
     "uuid": "^3.3.2",
-    "validator": "^10.2.0"
+    "validator": "^10.2.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
   }
 }
