@@ -18,6 +18,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "jest": "^23.1.0",
+    "jest-cli": "^23.1.0",
+    "react-test-renderer": "^16.4.1",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "dependencies": {
     "babel-core": "^6.26.3",
     "babel-jest": "^23.0.1",
     "babel-loader": "^7.1.4",
@@ -25,16 +34,8 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.4",
-    "jest": "^23.1.0",
-    "react-test-renderer": "^16.4.1"
-  },
-  "dependencies": {
     "css-loader": "^0.28.11",
     "express": "^4.16.3",
-    "jest-cli": "^23.1.0",
     "moment": "^2.22.2",
     "node-sass": "^4.9.0",
     "raf": "^3.4.0",
@@ -52,9 +53,7 @@
     "style-loader": "^0.21.0",
     "styled-components": "^3.3.2",
     "uuid": "^3.3.2",
-    "validator": "^10.2.0",
     "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
-  }
+    "webpack-cli": "^3.1.0"
+  } 
 }
