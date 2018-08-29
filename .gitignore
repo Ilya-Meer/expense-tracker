@@ -9,8 +9,7 @@ ehthumbs.db
 *[Tt]humbs.db
 *.Trashes
 
-# Ignore packages #
-# =============== #
+
 *.7z
 *.dmg
 *.gz
@@ -20,9 +19,9 @@ ehthumbs.db
 *.tar
 *.zip
 
-# Ignore packages #
-# =============== #
+
 node_modules/
 src/playground/
 public/bundle.js
 public/bundle.js.map
+.env.*

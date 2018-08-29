@@ -9,7 +9,7 @@ import './styles/styles.scss'
 import { addExpense } from './actions/expenseActions';
 import * as filters from './actions/filterActions';
 import getVisibleExpenses from './selectors/expenses';
-
+import './firebase/firebase';
 
 const store = configureStore();
 

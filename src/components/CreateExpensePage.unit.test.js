@@ -10,7 +10,7 @@ describe('Create Expense Page', () => {
     history = {
       push: jest.fn()
     }
-    wrapper = shallow(<CreateExpensePage addExpense={onSubmit} history={history}/>);
+    wrapper = shallow(<CreateExpensePage startAddExpense={onSubmit} history={history}/>);
   })
 
   it('should render properly', () => {

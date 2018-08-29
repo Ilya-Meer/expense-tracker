@@ -1,7 +1,5 @@
 import 'react-dates/initialize';
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addExpense } from '../actions/expenseActions';
 import moment from 'moment';
 
 import { SingleDatePicker } from 'react-dates';
