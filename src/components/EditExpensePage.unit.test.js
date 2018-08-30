@@ -22,7 +22,7 @@ describe('Edit Expense Page', () => {
       <EditExpensePage 
         expense={expense} 
         editExpense={onSubmit} 
-        removeExpense={onClick} 
+        startRemoveExpense={onClick} 
         history={history}
       />
     );

@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import db from '../firebase/firebase';
-import { setExpenses, startSetExpenses, startAddExpense, addExpense, editExpense, removeExpense } from './expenseActions';
+import { setExpenses, startSetExpenses, startAddExpense, addExpense, editExpense, removeExpense, startRemoveExpense } from './expenseActions';
 
 const createMockStore = configureMockStore([thunk]);
 
@@ -119,6 +119,45 @@ describe('Remove Expense Action Creator', () => {
       payload: obj.id
     });
   })
+
+  it('should remove an expense from the database and store', (done) => {
+    const store = createMockStore({});
+    const expense = { 
+      id: 5,
+      desc: '',
+      amount: 0,
+      note: '',
+      createdAt: 0 
+    }
+    store.dispatch(startRemoveExpense(expense))
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+          type: 'REMOVE_EXPENSE',
+          payload: expense.id
+        })
+        return db.ref(`expenses/${expense.id}`).once('value');
+      })
+      .then(snapshot => {
+        expect(snapshot.val()).toBeFalsy();
+        done();
+      })
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })
 
 describe('Set Expenses', () => {
