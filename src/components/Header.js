@@ -1,8 +1,19 @@
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { startLogout } from '../actions/authActions';
 
-export default class Header extends Component {  
+class Header extends Component {  
+  constructor(props) {
+    super(props);
+
+    this.logOut = this.logOut.bind(this);
+  }
+  logOut() {
+    this.props.startLogout();
+  }
+
   render() {
     const StyledHeader = styled.header`
       width: 100%;
@@ -72,6 +83,7 @@ export default class Header extends Component {
               activeStyle={NavLinkActiveStyle}>
                 Help
             </NavLink>
+            <button onClick={this.logOut}>Log Out</button>
           </StyledList>
         </StyledNav>
       </StyledHeader>
@@ -79,7 +91,16 @@ export default class Header extends Component {
   }
 }
 
+export { Header };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    startLogout: () => {
+      dispatch(startLogout())
+    }
+  }
+}
 
+export default connect(undefined, mapDispatchToProps)(Header)
 
-
+ 

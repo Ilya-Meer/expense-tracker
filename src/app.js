@@ -6,8 +6,7 @@ import AppRouter from './routes'
 import configureStore from './store/configureStore'
 import './styles/styles.scss'
 import { startSetExpenses } from './actions/expenseActions';
-import getVisibleExpenses from './selectors/expenses';
-import './firebase/firebase';
+import { firebase } from './firebase/firebase';
 
 const store = configureStore();
 
@@ -23,4 +22,12 @@ render(<p>Loading Expenses...</p>, root);
 
 store.dispatch(startSetExpenses()).then(() => {
   render(jsx, root);   
+})
+
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    console.log('you just logged in');
+  } else {
+    console.log('user just logged out');
+  }
 })

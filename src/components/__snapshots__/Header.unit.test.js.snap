@@ -74,6 +74,11 @@ exports[`Header Component renders properly 1`] = `
       >
         Help
       </NavLink>
+      <button
+        onClick={[Function]}
+      >
+        Log Out
+      </button>
     </styled.ul>
   </styled.nav>
 </styled.header>
