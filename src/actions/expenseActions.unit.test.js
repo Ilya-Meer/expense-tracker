@@ -1,9 +1,17 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import db from '../firebase/firebase';
-import { startAddExpense, addExpense, editExpense, removeExpense } from './expenseActions';
+import { setExpenses, startSetExpenses, startAddExpense, addExpense, editExpense, removeExpense } from './expenseActions';
 
 const createMockStore = configureMockStore([thunk]);
+
+beforeEach((done) => {
+  const expenses = {
+    1: {desc: 'gas bill', amount: 50, note: 'prices have certainly gone up', createdAt: 10},
+    2: {desc: 'poewr bill', amount: 20, note: 'I should probably switch to solar', createdAt: 20},
+  }
+  db.ref('expenses').set(expenses).then(() => done());
+})
 
 describe('Add Expense Action Creator', () => {
   describe('Add Expense with data', () => {
@@ -110,5 +118,42 @@ describe('Remove Expense Action Creator', () => {
       type: 'REMOVE_EXPENSE', 
       payload: obj.id
     });
+  })
+})
+
+describe('Set Expenses', () => {
+  it('should set up expenses action object with data', () => {
+    const expenses = [{
+      id: 123,
+      desc: '',
+      amount: 0,
+      note: '',
+      createdAt: 0
+    }]
+     const action = setExpenses(expenses);
+     expect(action).toEqual({
+       type: 'SET_EXPENSES',
+       expenses
+     })
+  })
+
+  it('should fetch the expense data from firebase', (done) => {
+    const store = createMockStore({});
+    const expenses = [
+      {id: 0, desc: 'gas bill', amount: 50, note: 'prices have certainly gone up', createdAt: 10},
+      {id: 1, desc: 'poewr bill', amount: 20, note: 'I should probably switch to solar', createdAt: 20},
+    ]
+    db.ref('expenses').set(expenses).then(() => {
+      store.dispatch(startSetExpenses())
+        .then(() => {
+          const actions = store.getActions();
+          expect(actions[0]).toEqual({
+            type: 'SET_EXPENSES',
+            expenses
+          });
+          done();
+        })
+    });
+
   })
 })

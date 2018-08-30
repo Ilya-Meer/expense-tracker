@@ -91,6 +91,33 @@ describe('expenses reducer', () => {
       }])
     })
   })
+
+  describe('set expenses functionality', () => {
+    it('sets up expenses when app is initialized', () => {
+      const expenses = [{
+        id: '1',
+        desc: 'Gas', 
+        note: 'The gas was too much', 
+        amount: '10000', 
+        createdAt: moment(0)
+      },
+      {
+        id: '3',
+        desc: 'Rent', 
+        note: 'The rent was not cheap either', 
+        amount: '2000000', 
+        createdAt: moment(0)
+      }
+    ];
+      const action = {
+        type: "SET_EXPENSES",
+        expenses
+      }
+      const state = expensesReducer(undefined, action )
+      expect(state).toEqual([...expenses]);
+    })
+  })
+ 
 })
 
 
