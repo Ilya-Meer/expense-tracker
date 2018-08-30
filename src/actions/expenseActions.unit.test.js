@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import db from '../firebase/firebase';
-import { setExpenses, startSetExpenses, startAddExpense, addExpense, editExpense, removeExpense, startRemoveExpense } from './expenseActions';
+import { setExpenses, startSetExpenses, startAddExpense, addExpense, startEditExpense, editExpense, removeExpense, startRemoveExpense } from './expenseActions';
 
 const createMockStore = configureMockStore([thunk]);
 
@@ -13,7 +13,7 @@ beforeEach((done) => {
   db.ref('expenses').set(expenses).then(() => done());
 })
 
-describe('Add Expense Action Creator', () => {
+describe('Add Expense Functionality', () => {
   describe('Add Expense with data', () => {
     it('should generate an action object to create an expense with passed in values', () => {
       const expense = {
@@ -89,7 +89,7 @@ describe('Add Expense Action Creator', () => {
   })
 })
 
-describe('Edit Expense Action Creator', () => {
+describe('Edit Expense Functionality', () => {
   it('should generate an action object to edit an expense', () => {
     const obj = {
       id: '123', 
@@ -105,9 +105,35 @@ describe('Edit Expense Action Creator', () => {
       }
     });    
   })
+
+  it('should make requested changes in the database and the store', (done) => {
+    const store = createMockStore({});
+    const expense = {
+      id: '0',           
+    };
+    const updates = {           
+      note: 'Nevermind, I called long distance'
+    };
+    store.dispatch(startEditExpense(expense.id, updates))
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+          type: 'EDIT_EXPENSE',
+          payload: {
+            id: expense.id,
+            updates
+          }
+        })
+      })
+      return db.ref(`expenses/${expense.id}`).once('value')
+        .then(snapshot => {
+          expect(snapshot.val().note).toEqual('Nevermind, I called long distance')
+          done()
+        })
+  })
 })
 
-describe('Remove Expense Action Creator', () => {
+describe('Remove Expense Functionality', () => {
   it('should generate an action object to remove an expense', () => {
     const obj = {
       id: '123'
@@ -143,21 +169,6 @@ describe('Remove Expense Action Creator', () => {
         done();
       })
   })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })
 
 describe('Set Expenses', () => {
@@ -193,6 +204,5 @@ describe('Set Expenses', () => {
           done();
         })
     });
-
   })
 })

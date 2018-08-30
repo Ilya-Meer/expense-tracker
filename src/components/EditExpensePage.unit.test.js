@@ -21,7 +21,7 @@ describe('Edit Expense Page', () => {
     wrapper = shallow(
       <EditExpensePage 
         expense={expense} 
-        editExpense={onSubmit} 
+        startEditExpense={onSubmit} 
         startRemoveExpense={onClick} 
         history={history}
       />
