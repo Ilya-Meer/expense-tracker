@@ -60,8 +60,7 @@ class Header extends Component {
       <StyledHeader>
         <StyledNav>
             <NavLink
-              exact={true}
-              to="/"
+              to="/dashboard"
               style={NavLinkStyle}
               activeClassName="selected"
               activeStyle={NavLinkActiveStyle}>
