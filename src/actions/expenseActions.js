@@ -10,7 +10,8 @@ export const addExpense = (expense) => {
 }
 
 export const startAddExpense = (expenseData = {}) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     const { desc = '', note = '', amount = 0, createdAt = 0 } = expenseData;
     const expense = { 
       desc, 
@@ -19,7 +20,7 @@ export const startAddExpense = (expenseData = {}) => {
       createdAt: moment(createdAt).valueOf()
     };
 
-    return db.ref('expenses').push(expense).then((ref) => {
+    return db.ref(`users/${uid}/expenses`).push(expense).then((ref) => {
       dispatch(addExpense({
         id: ref.key,
         ...expense
@@ -36,8 +37,9 @@ export const removeExpense = (expense) => {
 }
 
 export const startRemoveExpense = (expense) => {
-  return dispatch => {
-    return db.ref(`expenses/${expense.id}`).remove()
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return db.ref(`users/${uid}/expenses/${expense.id}`).remove()
       .then(() => {
         dispatch(removeExpense(expense))
       })
@@ -55,8 +57,9 @@ export const editExpense = (id, updates ) => {
 }
 
 export const startEditExpense = (id, updates) => {
-  return dispatch => {
-    return db.ref(`expenses/${id}`).update({
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return db.ref(`users/${uid}/expenses/${id}`).update({
       ...updates,
       createdAt: moment(updates.createdAt).valueOf()
     })
@@ -66,9 +69,6 @@ export const startEditExpense = (id, updates) => {
   }
 }
 
-
-
-
 export const setExpenses = (expenses) => {
   return {
     type: 'SET_EXPENSES',
@@ -77,8 +77,9 @@ export const setExpenses = (expenses) => {
 }
 
 export const startSetExpenses = () => {
-  return dispatch => {
-    return db.ref('expenses').once('value')
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return db.ref(`users/${uid}/expenses`).once('value')
     .then(snapshot => {
       const expenses = [];
       snapshot.forEach(childSnapshot => {

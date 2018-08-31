@@ -12,6 +12,7 @@ import {
   startRemoveExpense 
 } from './expenseActions';
 
+const uid = 'sampleUserId';
 const createMockStore = configureMockStore([thunk]);
 
 beforeEach((done) => {
@@ -19,7 +20,7 @@ beforeEach((done) => {
     1: {desc: 'gas bill', amount: 50, note: 'prices have certainly gone up', createdAt: 10},
     2: {desc: 'poewr bill', amount: 20, note: 'I should probably switch to solar', createdAt: 20},
   }
-  db.ref('expenses').set(expenses).then(() => done());
+  db.ref(`users/${uid}/expenses`).set(expenses).then(() => done());
 })
 
 describe('Add Expense Functionality', () => {
@@ -42,7 +43,7 @@ describe('Add Expense Functionality', () => {
 
   describe('Add Expense to database and store', () => {
     it('should add an expense to the database and the store', (done) => {
-      const store = createMockStore({});
+      const store = createMockStore({ auth: { uid }});
       const obj = {
         desc: 'MacBook', 
         note: 'For work!', 
@@ -59,7 +60,7 @@ describe('Add Expense Functionality', () => {
             ...obj
           }
         })
-        return db.ref(`expenses/${actions[0].expense.id}`).once('value')
+        return db.ref(`users/${uid}/expenses/${actions[0].expense.id}`).once('value')
       })
       .then(snapshot => {
         expect(snapshot.val()).toEqual(obj);
@@ -69,7 +70,7 @@ describe('Add Expense Functionality', () => {
 
     it('should add an expense to the database and the store with default values', (done) => {
       const obj = {};
-      const store = createMockStore({});
+      const store = createMockStore({ auth: { uid }});
       store.dispatch(startAddExpense(obj))
       .then(() => {
         const actions = store.getActions();
@@ -83,7 +84,7 @@ describe('Add Expense Functionality', () => {
             createdAt: 0
           }
         })
-        return db.ref(`expenses/${actions[0].expense.id}`).once('value')
+        return db.ref(`users/${uid}/expenses/${actions[0].expense.id}`).once('value')
       })
       .then(snapshot => {
         expect(snapshot.val()).toEqual({
@@ -116,7 +117,7 @@ describe('Edit Expense Functionality', () => {
   })
 
   it('should make requested changes in the database and the store', (done) => {
-    const store = createMockStore({});
+    const store = createMockStore({ auth: { uid }});
     const expense = {
       id: '0',           
     };
@@ -134,7 +135,7 @@ describe('Edit Expense Functionality', () => {
           }
         })
       })
-      return db.ref(`expenses/${expense.id}`).once('value')
+      return db.ref(`users/${uid}/expenses/${expense.id}`).once('value')
         .then(snapshot => {
           expect(snapshot.val().note).toEqual('Nevermind, I called long distance')
           done()
@@ -156,7 +157,7 @@ describe('Remove Expense Functionality', () => {
   })
 
   it('should remove an expense from the database and store', (done) => {
-    const store = createMockStore({});
+    const store = createMockStore({ auth: { uid }});
     const expense = { 
       id: 5,
       desc: '',
@@ -171,7 +172,7 @@ describe('Remove Expense Functionality', () => {
           type: 'REMOVE_EXPENSE',
           payload: expense.id
         })
-        return db.ref(`expenses/${expense.id}`).once('value');
+        return db.ref(`users/${uid}/expenses/${expense.id}`).once('value');
       })
       .then(snapshot => {
         expect(snapshot.val()).toBeFalsy();
@@ -197,12 +198,12 @@ describe('Set Expenses', () => {
   })
 
   it('should fetch the expense data from firebase', (done) => {
-    const store = createMockStore({});
+    const store = createMockStore({ auth: { uid }});
     const expenses = [
       {id: 0, desc: 'gas bill', amount: 50, note: 'prices have certainly gone up', createdAt: 10},
       {id: 1, desc: 'poewr bill', amount: 20, note: 'I should probably switch to solar', createdAt: 20},
     ]
-    db.ref('expenses').set(expenses).then(() => {
+    db.ref(`users/${uid}/expenses`).set(expenses).then(() => {
       store.dispatch(startSetExpenses())
         .then(() => {
           const actions = store.getActions();
