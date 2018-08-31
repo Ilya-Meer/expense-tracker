@@ -11,7 +11,6 @@ exports[`Header Component renders properly 1`] = `
         }
       }
       aria-current="page"
-      exact={true}
       style={
         Object {
           "color": "magenta",
@@ -20,7 +19,7 @@ exports[`Header Component renders properly 1`] = `
           "textDecoration": "none",
         }
       }
-      to="/"
+      to="/dashboard"
     >
       <h1
         style={

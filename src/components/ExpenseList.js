@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import getVisibleExpenses from '../selectors/expenses';
 import ExpenseListItem from './ExpenseListItem';
-import styled from 'styled-components';
 
 
 const StyledExpenseList = styled.div`

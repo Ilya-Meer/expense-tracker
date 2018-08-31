@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ExpenseList from './ExpenseList';
+import ExpenseSummary from './ExpenseSummary';
 import ExpenseListFilters from './ExpenseListFilters';
 
 const HomeDashboard = () => (
   <div>
-    <p>I am the home route!</p>
+    <ExpenseSummary />
     <ExpenseListFilters />
     <ExpenseList />
   </div>

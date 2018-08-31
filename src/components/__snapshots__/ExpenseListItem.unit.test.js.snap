@@ -8,7 +8,9 @@ exports[`Expense List Item should render expense list item 1`] = `
   >
     <h3 />
   </Link>
-  <p />
+  <p>
+    $0.00
+  </p>
   <p>
     Created on 
     Dec 31st, 1969
