@@ -40,20 +40,14 @@ exports[`Header Component renders properly 1`] = `
       </NavLink>
     </li>
     <li>
-      <NavLink
-        activeClassName="selected"
-        activeStyle={
-          Object {
-            "color": "#bcddff",
-            "textDecoration": "none",
-          }
-        }
-        aria-current="page"
-        to="/help"
+      <a
+        href="https://github.com/Ilya-Meer/Expense-Tracker"
+        rel="noopener"
+        target="_blank"
       >
         <Component />
-        Help
-      </NavLink>
+        View on Github
+      </a>
     </li>
     <li
       onClick={[Function]}

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { StyledNav, StyledList, Hamburger, HomeButton } from './StyledComponents/Header';
 import { MdHome, MdAddCircleOutline, MdHelpOutline, MdMenu, MdPowerSettingsNew } from 'react-icons/md';
+import { FaGithub } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { startLogout } from '../actions/authActions';
@@ -51,12 +52,12 @@ class Header extends Component {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/help"
-                activeClassName="selected"
-                activeStyle={NavLinkActiveStyle}>
-                  <MdHelpOutline/>Help
-              </NavLink>
+              <a
+                href="https://github.com/Ilya-Meer/Expense-Tracker"
+                target="_blank"
+                rel="noopener">
+                  <FaGithub/>View on Github
+              </a>
             </li>
             <li onClick={this.logOut}>
               <MdPowerSettingsNew/>
