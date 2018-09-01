@@ -1,20 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
+import { StyledExpenseList } from './StyledComponents/HomeDashboard';
 import getVisibleExpenses from '../selectors/expenses';
 import ExpenseListItem from './ExpenseListItem';
-
-
-const StyledExpenseList = styled.div`
-  padding: 5%;
-`
-
 
 export const ExpenseList = (props) => {
   
   return (
     <StyledExpenseList>
-      <h1>Expense List</h1>
+      <h2>Expense List</h2>
       <div>
         {props.expenses.length === 0 ? (
           <p>Add an Expense!</p>

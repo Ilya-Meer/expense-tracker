@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
+import { H2, Button } from './StyledComponents/Shared';
 import { startEditExpense, startRemoveExpense } from '../actions/expenseActions';
 
 class EditExpensePage extends Component {
@@ -21,14 +22,18 @@ class EditExpensePage extends Component {
   render() {
     return (
       <div>
+        <H2>Edit Expense</H2>
         <ExpenseForm
           expense={this.props.expense} 
           onSubmit={this.onSubmit}
         />
-        <button
-        onClick={this.onClick}>
+        <Button
+        onClick={this.onClick}
+        negative={true}
+        style={{margin: '10px 5%'}}
+        >
         Remove Expense
-      </button>
+      </Button>
       </div>
     )
   }

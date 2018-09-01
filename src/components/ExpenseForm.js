@@ -1,6 +1,7 @@
 import 'react-dates/initialize';
 import React, { Component } from 'react';
 import moment from 'moment';
+import { StyledForm, Input, Button } from './StyledComponents/Shared'
 
 import { SingleDatePicker } from 'react-dates';
 
@@ -94,10 +95,10 @@ class ExpenseForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <StyledForm onSubmit={this.handleSubmit}>
         <p>{this.state.error}</p>
-        <input autoFocus type="text" name="desc" placeholder="description" value={this.state.desc} onChange={this.handleDescription}/>
-        <input type="text" name="amount" placeholder="amount" value={this.state.amount} onChange={this.handleAmount}/>
+        <Input autoFocus type="text" name="desc" placeholder="description" value={this.state.desc} onChange={this.handleDescription}/>
+        <Input type="text" name="amount" placeholder="amount" value={this.state.amount} onChange={this.handleAmount}/>
         <SingleDatePicker 
           date={this.state.createdAt}
           onDateChange={this.handleDate}
@@ -110,8 +111,8 @@ class ExpenseForm extends Component {
 
 
         <textarea name="note" id="note" cols="30" rows="10" placeholder="Add a note for your expense" value={this.state.note} onChange={this.handleNote}></textarea>
-        <input type="submit" value="Submit"/>
-      </form>
+        <Button type="submit">Submit</Button>
+      </StyledForm>
     )
   }
 }

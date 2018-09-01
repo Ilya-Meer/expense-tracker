@@ -13,7 +13,7 @@ describe('Header Component', () => {
   it('logs user out when logout button is clicked', () => {
     const startLogout = jest.fn();
     const wrapper = shallow(<Header startLogout={startLogout}/>);
-    wrapper.find('button').simulate('click');
+    wrapper.find('li').at(2).simulate('click');
     expect(startLogout).toHaveBeenCalled();
   })
 })

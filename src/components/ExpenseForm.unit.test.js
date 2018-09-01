@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ExpenseForm from './ExpenseForm';
+import { StyledForm, Input, Button } from './StyledComponents/Shared'
 import moment from './__mocks__/moment'
 
 describe('Expense Form', () => {
@@ -24,7 +25,7 @@ describe('Expense Form', () => {
 
   it('should render an error message when the form is submitted without description or amount', () => {
     const wrapper = shallow(<ExpenseForm />);
-    wrapper.find('form').simulate('submit', {
+    wrapper.find(StyledForm).simulate('submit', {
       preventDefault: () => {}
     });
     expect(wrapper.state().error).toBe('Please make sure there is a valid description and amount!')
@@ -33,7 +34,7 @@ describe('Expense Form', () => {
 
   it('should set description on input change', () => {
     const wrapper = shallow(<ExpenseForm />);
-    const input = wrapper.find('input').at(0).simulate('change', {
+    const input = wrapper.find(Input).at(0).simulate('change', {
       target: {
         value: 'New Description'
       }
@@ -55,7 +56,7 @@ describe('Expense Form', () => {
 
   it('should not set amount when given invalid input', () => {
     const wrapper = shallow(<ExpenseForm />);
-    const textarea = wrapper.find('input').at(1).simulate('change', {
+    const input = wrapper.find(Input).at(1).simulate('change', {
       target: {
         value: '100.10000'
       }
@@ -66,7 +67,7 @@ describe('Expense Form', () => {
 
   it('should set amount when given valid input', () => {
     const wrapper = shallow(<ExpenseForm />);
-    const textarea = wrapper.find('input').at(1).simulate('change', {
+    const input = wrapper.find(Input).at(1).simulate('change', {
       target: {
         value: '100.00'
       }
@@ -86,7 +87,7 @@ describe('Expense Form', () => {
     const onSubmitSpy = jest.fn();
 
     const wrapper = shallow(<ExpenseForm expense={expense} onSubmit={onSubmitSpy}/>);
-    wrapper.find('form').simulate('submit', {
+    wrapper.find(StyledForm).simulate('submit', {
       preventDefault: () => {}
     });
     expect(onSubmitSpy).toHaveBeenCalledWith({

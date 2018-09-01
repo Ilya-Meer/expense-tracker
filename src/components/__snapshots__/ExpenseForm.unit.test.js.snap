@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Expense Form should not set amount when given invalid input 1`] = `
-<form
+<styled.form
   onSubmit={[Function]}
 >
   <p />
-  <input
+  <styled.input
     autoFocus={true}
     name="desc"
     onChange={[Function]}
@@ -13,7 +13,7 @@ exports[`Expense Form should not set amount when given invalid input 1`] = `
     type="text"
     value=""
   />
-  <input
+  <styled.input
     name="amount"
     onChange={[Function]}
     placeholder="amount"
@@ -105,21 +105,22 @@ exports[`Expense Form should not set amount when given invalid input 1`] = `
     rows="10"
     value=""
   />
-  <input
+  <styled.button
     type="submit"
-    value="Submit"
-  />
-</form>
+  >
+    Submit
+  </styled.button>
+</styled.form>
 `;
 
 exports[`Expense Form should render an error message when the form is submitted without description or amount 1`] = `
-<form
+<styled.form
   onSubmit={[Function]}
 >
   <p>
     Please make sure there is a valid description and amount!
   </p>
-  <input
+  <styled.input
     autoFocus={true}
     name="desc"
     onChange={[Function]}
@@ -127,7 +128,7 @@ exports[`Expense Form should render an error message when the form is submitted 
     type="text"
     value=""
   />
-  <input
+  <styled.input
     name="amount"
     onChange={[Function]}
     placeholder="amount"
@@ -219,19 +220,20 @@ exports[`Expense Form should render an error message when the form is submitted 
     rows="10"
     value=""
   />
-  <input
+  <styled.button
     type="submit"
-    value="Submit"
-  />
-</form>
+  >
+    Submit
+  </styled.button>
+</styled.form>
 `;
 
 exports[`Expense Form should render the Expense Form 1`] = `
-<form
+<styled.form
   onSubmit={[Function]}
 >
   <p />
-  <input
+  <styled.input
     autoFocus={true}
     name="desc"
     onChange={[Function]}
@@ -239,7 +241,7 @@ exports[`Expense Form should render the Expense Form 1`] = `
     type="text"
     value=""
   />
-  <input
+  <styled.input
     name="amount"
     onChange={[Function]}
     placeholder="amount"
@@ -331,19 +333,20 @@ exports[`Expense Form should render the Expense Form 1`] = `
     rows="10"
     value=""
   />
-  <input
+  <styled.button
     type="submit"
-    value="Submit"
-  />
-</form>
+  >
+    Submit
+  </styled.button>
+</styled.form>
 `;
 
 exports[`Expense Form should render the Expense Form with seed data 1`] = `
-<form
+<styled.form
   onSubmit={[Function]}
 >
   <p />
-  <input
+  <styled.input
     autoFocus={true}
     name="desc"
     onChange={[Function]}
@@ -351,7 +354,7 @@ exports[`Expense Form should render the Expense Form with seed data 1`] = `
     type="text"
     value="Rent"
   />
-  <input
+  <styled.input
     name="amount"
     onChange={[Function]}
     placeholder="amount"
@@ -443,19 +446,20 @@ exports[`Expense Form should render the Expense Form with seed data 1`] = `
     rows="10"
     value="The rent was not cheap either"
   />
-  <input
+  <styled.button
     type="submit"
-    value="Submit"
-  />
-</form>
+  >
+    Submit
+  </styled.button>
+</styled.form>
 `;
 
 exports[`Expense Form should set amount when given valid input 1`] = `
-<form
+<styled.form
   onSubmit={[Function]}
 >
   <p />
-  <input
+  <styled.input
     autoFocus={true}
     name="desc"
     onChange={[Function]}
@@ -463,7 +467,7 @@ exports[`Expense Form should set amount when given valid input 1`] = `
     type="text"
     value=""
   />
-  <input
+  <styled.input
     name="amount"
     onChange={[Function]}
     placeholder="amount"
@@ -555,19 +559,20 @@ exports[`Expense Form should set amount when given valid input 1`] = `
     rows="10"
     value=""
   />
-  <input
+  <styled.button
     type="submit"
-    value="Submit"
-  />
-</form>
+  >
+    Submit
+  </styled.button>
+</styled.form>
 `;
 
 exports[`Expense Form should set description on input change 1`] = `
-<form
+<styled.form
   onSubmit={[Function]}
 >
   <p />
-  <input
+  <styled.input
     autoFocus={true}
     name="desc"
     onChange={[Function]}
@@ -575,7 +580,7 @@ exports[`Expense Form should set description on input change 1`] = `
     type="text"
     value="New Description"
   />
-  <input
+  <styled.input
     name="amount"
     onChange={[Function]}
     placeholder="amount"
@@ -667,19 +672,20 @@ exports[`Expense Form should set description on input change 1`] = `
     rows="10"
     value=""
   />
-  <input
+  <styled.button
     type="submit"
-    value="Submit"
-  />
-</form>
+  >
+    Submit
+  </styled.button>
+</styled.form>
 `;
 
 exports[`Expense Form should set note on textarea change 1`] = `
-<form
+<styled.form
   onSubmit={[Function]}
 >
   <p />
-  <input
+  <styled.input
     autoFocus={true}
     name="desc"
     onChange={[Function]}
@@ -687,7 +693,7 @@ exports[`Expense Form should set note on textarea change 1`] = `
     type="text"
     value=""
   />
-  <input
+  <styled.input
     name="amount"
     onChange={[Function]}
     placeholder="amount"
@@ -779,9 +785,10 @@ exports[`Expense Form should set note on textarea change 1`] = `
     rows="10"
     value="New Note"
   />
-  <input
+  <styled.button
     type="submit"
-    value="Submit"
-  />
-</form>
+  >
+    Submit
+  </styled.button>
+</styled.form>
 `;

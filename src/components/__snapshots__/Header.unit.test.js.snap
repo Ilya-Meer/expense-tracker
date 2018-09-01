@@ -1,84 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header Component renders properly 1`] = `
-<styled.header>
-  <styled.nav>
-    <NavLink
-      activeClassName="selected"
-      activeStyle={
-        Object {
-          "color": "#001d48",
-        }
+<styled.nav>
+  <Styled(NavLink)
+    activeClassName="selected"
+    activeStyle={
+      Object {
+        "color": "#bcddff",
+        "textDecoration": "none",
       }
-      aria-current="page"
-      style={
-        Object {
-          "color": "magenta",
-          "display": "inline",
-          "margin": "0 1rem",
-          "textDecoration": "none",
-        }
-      }
-      to="/dashboard"
-    >
-      <h1
-        style={
-          Object {
-            "fontSize": "16px",
-            "paddingLeft": "2rem",
-          }
-        }
-      >
-        Exp3nse Tr@ck3r
-      </h1>
-    </NavLink>
-    <styled.ul>
+    }
+    to="/dashboard"
+  >
+    <Component />
+    Exp3nse Tracker
+  </Styled(NavLink)>
+  <styled.button
+    onClick={[Function]}
+  >
+    <Component />
+  </styled.button>
+  <styled.ul
+    show={false}
+  >
+    <li>
       <NavLink
         activeClassName="selected"
         activeStyle={
           Object {
-            "color": "#001d48",
-          }
-        }
-        aria-current="page"
-        style={
-          Object {
-            "color": "magenta",
-            "display": "inline",
-            "margin": "0 1rem",
+            "color": "#bcddff",
             "textDecoration": "none",
           }
         }
+        aria-current="page"
         to="/create"
       >
+        <Component />
         Add Expense
       </NavLink>
+    </li>
+    <li>
       <NavLink
         activeClassName="selected"
         activeStyle={
           Object {
-            "color": "#001d48",
-          }
-        }
-        aria-current="page"
-        style={
-          Object {
-            "color": "magenta",
-            "display": "inline",
-            "margin": "0 1rem",
+            "color": "#bcddff",
             "textDecoration": "none",
           }
         }
+        aria-current="page"
         to="/help"
       >
+        <Component />
         Help
       </NavLink>
-      <button
-        onClick={[Function]}
-      >
-        Log Out
-      </button>
-    </styled.ul>
-  </styled.nav>
-</styled.header>
+    </li>
+    <li
+      onClick={[Function]}
+    >
+      <Component />
+      Log Out
+    </li>
+  </styled.ul>
+</styled.nav>
 `;

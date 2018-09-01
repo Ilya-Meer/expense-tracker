@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ExpenseForm from './ExpenseForm';
 import { connect } from 'react-redux';
+import { H2 } from './StyledComponents/Shared';
 import { startAddExpense } from '../actions/expenseActions';
 
 class CreateExpensePage extends Component {
@@ -15,7 +16,7 @@ class CreateExpensePage extends Component {
   render() {
     return (
       <div>
-        <p>I am the Create route!</p>
+        <H2>Add an Expense</H2>
         <ExpenseForm onSubmit={this.onSubmit}/>
       </div>    
     )

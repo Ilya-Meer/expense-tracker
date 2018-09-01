@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import {EditExpensePage} from './EditExpensePage';
+import { Button } from './StyledComponents/Shared';
 import moment from './__mocks__/moment'
 
 describe('Edit Expense Page', () => {
@@ -39,7 +40,7 @@ describe('Edit Expense Page', () => {
   })
 
   it('should handle remove Expense', () => {
-     wrapper.find('button').prop('onClick')(expense);
+     wrapper.find(Button).prop('onClick')(expense);
      expect(onClick).toHaveBeenLastCalledWith(expense);
      expect(history.push).toHaveBeenLastCalledWith('/');
   })

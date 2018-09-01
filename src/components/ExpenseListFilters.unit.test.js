@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { Input, Select } from './StyledComponents/Shared';
 import {ExpenseListFilters} from './ExpenseListFilters';
 import moment from './__mocks__/moment'
 
@@ -50,17 +51,17 @@ describe('Expense List Filters', () => {
   })
 
   it('should set the text filter on setTextFilter', () => {
-    wrapper.find('input').at(0).simulate('change', { target: { value: 'bill' } });
+    wrapper.find(Input).at(0).simulate('change', { target: { value: 'bill' } });
     expect(setTextFilter).toHaveBeenLastCalledWith('bill');
   })
 
   it('should set the sortBy filter to amount when amount is selected', () => {
-    wrapper.find('select').simulate('change', { target: { value: 'amount' } });
+    wrapper.find(Select).simulate('change', { target: { value: 'amount' } });
     expect(sortByAmount).toHaveBeenCalled();
   })
 
   it('should set the sortBy filter to date when date is selected', () => {
-    wrapper.find('select').simulate('change', { target: { value: 'date' } });
+    wrapper.find(Select).simulate('change', { target: { value: 'date' } });
     expect(sortByDate).toHaveBeenCalled();
   })
 

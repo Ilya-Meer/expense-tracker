@@ -1,25 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Expense Summary Component should render properly with multiple expenses 1`] = `
-<div>
-  <h2>
-    Viewing 2 expenses totalling $0.20
-  </h2>
-</div>
+<styled.div>
+  <h1>
+    Viewing 2 expenses totalling 
+    <span>
+      $0.20
+    </span>
+  </h1>
+</styled.div>
 `;
 
 exports[`Expense Summary Component should render properly with no expenses 1`] = `
-<div>
-  <h2>
-    Viewing 0 expenses totalling $0.00
-  </h2>
-</div>
+<styled.div>
+  <h1>
+    Viewing 0 expenses totalling 
+    <span>
+      $0.00
+    </span>
+  </h1>
+</styled.div>
 `;
 
 exports[`Expense Summary Component should render properly with one expense 1`] = `
-<div>
-  <h2>
-    Viewing 1 expense totalling $0.10
-  </h2>
-</div>
+<styled.div>
+  <h1>
+    Viewing 1 expense totalling 
+    <span>
+      $0.10
+    </span>
+  </h1>
+</styled.div>
 `;

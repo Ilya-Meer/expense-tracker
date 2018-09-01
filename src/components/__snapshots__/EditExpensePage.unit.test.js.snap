@@ -2,6 +2,9 @@
 
 exports[`Edit Expense Page should render properly 1`] = `
 <div>
+  <styled.h2>
+    Edit Expense
+  </styled.h2>
   <ExpenseForm
     expense={
       Object {
@@ -14,10 +17,16 @@ exports[`Edit Expense Page should render properly 1`] = `
     }
     onSubmit={[Function]}
   />
-  <button
+  <styled.button
+    negative={true}
     onClick={[Function]}
+    style={
+      Object {
+        "margin": "10px 5%",
+      }
+    }
   >
     Remove Expense
-  </button>
+  </styled.button>
 </div>
 `;

@@ -1,91 +1,69 @@
 import React, {Component} from 'react';
+import { StyledNav, StyledList, Hamburger, HomeButton } from './StyledComponents/Header';
+import { MdHome, MdAddCircleOutline, MdHelpOutline, MdMenu, MdPowerSettingsNew } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { startLogout } from '../actions/authActions';
 
 class Header extends Component {  
   constructor(props) {
     super(props);
-
     this.logOut = this.logOut.bind(this);
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
+
+    this.state = {
+      showNav: false
+    }
   }
   logOut() {
     this.props.startLogout();
   }
 
+  toggleMobileNav() {
+    this.setState({ showNav: !this.state.showNav })
+  }
+
   render() {
-    const StyledHeader = styled.header`
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      margin: 0 auto;
-      color: magenta;
-      text-align: center;
-      box-shadow: 0 1px 6px rgba(0,0,0,.16), 0 1px 6px rgba(0,0,0,.23);
-    `;
-
-    const StyledNav = styled.nav`
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    `;
-
-
-    const StyledList = styled.ul`
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-    `;
-
-    const NavLinkStyle = {
-      display: "inline",
-      margin: "0 1rem",
-      color: "magenta", 
-      textDecoration: 'none', 
-    }
-
     const NavLinkActiveStyle = {
-      color: "#001d48",
-    }
-
-    const h1style = {
-      paddingLeft: "2rem", 
-      fontSize: "16px"
+      color: "#bcddff",
+      textDecoration: 'none'
     }
 
     return (
-      <StyledHeader>
         <StyledNav>
-            <NavLink
-              to="/dashboard"
-              style={NavLinkStyle}
-              activeClassName="selected"
-              activeStyle={NavLinkActiveStyle}>
-                <h1 style={h1style}>Exp3nse Tr@ck3r</h1>
-            </NavLink>
-          
-          <StyledList>
-            <NavLink
-              to="/create"
-              style={NavLinkStyle}
-              activeClassName="selected"
-              activeStyle={NavLinkActiveStyle}>
-                Add Expense
-            </NavLink>
-            <NavLink
-              to="/help"
-              style={NavLinkStyle}
-              activeClassName="selected"
-              activeStyle={NavLinkActiveStyle}>
-                Help
-            </NavLink>
-            <button onClick={this.logOut}>Log Out</button>
+          <HomeButton
+            to="/dashboard"
+            activeClassName="selected"
+            activeStyle={NavLinkActiveStyle}>
+              <MdHome/>Exp3nse Tracker
+          </HomeButton>
+          <Hamburger 
+            onClick={this.toggleMobileNav}> 
+              <MdMenu />
+          </Hamburger>
+          <StyledList show={this.state.showNav}>
+            <li>
+              <NavLink
+                to="/create"
+                activeClassName="selected"
+                activeStyle={NavLinkActiveStyle}>
+                  <MdAddCircleOutline/>Add Expense
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/help"
+                activeClassName="selected"
+                activeStyle={NavLinkActiveStyle}>
+                  <MdHelpOutline/>Help
+              </NavLink>
+            </li>
+            <li onClick={this.logOut}>
+              <MdPowerSettingsNew/>
+              Log Out
+            </li>
           </StyledList>
         </StyledNav>
-      </StyledHeader>
     )
   }
 }

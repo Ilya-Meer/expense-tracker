@@ -2,9 +2,9 @@
 
 exports[`Create Expense Page should render properly 1`] = `
 <div>
-  <p>
-    I am the Create route!
-  </p>
+  <styled.h2>
+    Add an Expense
+  </styled.h2>
   <ExpenseForm
     onSubmit={[Function]}
   />
