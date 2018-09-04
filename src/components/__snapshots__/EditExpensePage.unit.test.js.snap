@@ -23,6 +23,7 @@ exports[`Edit Expense Page should render properly 1`] = `
     negative={true}
     onClick={[Function]}
   >
+    <Component />
     Remove Expense
   </styled.button>
 </styled.div>

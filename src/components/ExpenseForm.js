@@ -1,6 +1,7 @@
 import 'react-dates/initialize';
 import React, { Component } from 'react';
 import moment from 'moment';
+import { FaTelegramPlane } from 'react-icons/fa';
 import { StyledForm, Input, Button } from './StyledComponents/Shared'
 
 import { SingleDatePicker } from 'react-dates';
@@ -111,7 +112,7 @@ class ExpenseForm extends Component {
 
 
         <textarea name="note" id="note" cols="30" rows="10" placeholder="Add a note for your expense" value={this.state.note} onChange={this.handleNote}></textarea>
-        <Button type="submit">Submit</Button>
+        <Button type="submit"><FaTelegramPlane/>Submit</Button>
       </StyledForm>
     )
   }

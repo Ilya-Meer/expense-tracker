@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { Button } from './StyledComponents/Shared';
 import { LoginPage } from './LoginPage';
 
 
@@ -14,7 +15,7 @@ describe('Login Button', () => {
   it('should log user in when log in button is clicked', () => {
     const startLogin = jest.fn();
     const wrapper = shallow(<LoginPage startLogin={startLogin}/>);
-    wrapper.find('button').at(0).simulate('click');
+    wrapper.find(Button).at(0).simulate('click');
     expect(startLogin).toHaveBeenCalled();
   })
 })

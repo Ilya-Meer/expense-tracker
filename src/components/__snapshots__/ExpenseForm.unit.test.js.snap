@@ -108,6 +108,7 @@ exports[`Expense Form should not set amount when given invalid input 1`] = `
   <styled.button
     type="submit"
   >
+    <Component />
     Submit
   </styled.button>
 </styled.form>
@@ -223,6 +224,7 @@ exports[`Expense Form should render an error message when the form is submitted 
   <styled.button
     type="submit"
   >
+    <Component />
     Submit
   </styled.button>
 </styled.form>
@@ -336,6 +338,7 @@ exports[`Expense Form should render the Expense Form 1`] = `
   <styled.button
     type="submit"
   >
+    <Component />
     Submit
   </styled.button>
 </styled.form>
@@ -449,6 +452,7 @@ exports[`Expense Form should render the Expense Form with seed data 1`] = `
   <styled.button
     type="submit"
   >
+    <Component />
     Submit
   </styled.button>
 </styled.form>
@@ -562,6 +566,7 @@ exports[`Expense Form should set amount when given valid input 1`] = `
   <styled.button
     type="submit"
   >
+    <Component />
     Submit
   </styled.button>
 </styled.form>
@@ -675,6 +680,7 @@ exports[`Expense Form should set description on input change 1`] = `
   <styled.button
     type="submit"
   >
+    <Component />
     Submit
   </styled.button>
 </styled.form>
@@ -788,6 +794,7 @@ exports[`Expense Form should set note on textarea change 1`] = `
   <styled.button
     type="submit"
   >
+    <Component />
     Submit
   </styled.button>
 </styled.form>
