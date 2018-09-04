@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import { StyledNav, StyledList, Hamburger, HomeButton } from './StyledComponents/Header';
-import { MdHome, MdAddCircleOutline, MdHelpOutline, MdMenu, MdPowerSettingsNew } from 'react-icons/md';
+import { MdHome, MdMenu, MdPowerSettingsNew } from 'react-icons/md';
 import { FaGithub } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { startLogout } from '../actions/authActions';
 
@@ -25,17 +24,10 @@ class Header extends Component {
   }
 
   render() {
-    const NavLinkActiveStyle = {
-      color: "#bcddff",
-      textDecoration: 'none'
-    }
-
     return (
         <StyledNav>
           <HomeButton
-            to="/dashboard"
-            activeClassName="selected"
-            activeStyle={NavLinkActiveStyle}>
+            to="/dashboard">
               <MdHome/>Exp3nse Tracker
           </HomeButton>
           <Hamburger 
@@ -43,14 +35,6 @@ class Header extends Component {
               <MdMenu />
           </Hamburger>
           <StyledList show={this.state.showNav}>
-            <li>
-              <NavLink
-                to="/create"
-                activeClassName="selected"
-                activeStyle={NavLinkActiveStyle}>
-                  <MdAddCircleOutline/>Add Expense
-              </NavLink>
-            </li>
             <li>
               <a
                 href="https://github.com/Ilya-Meer/Expense-Tracker"

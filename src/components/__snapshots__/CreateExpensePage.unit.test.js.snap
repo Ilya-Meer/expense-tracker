@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create Expense Page should render properly 1`] = `
-<div>
+<styled.div
+  secondaryPage={true}
+>
   <styled.h2>
     Add an Expense
   </styled.h2>
   <ExpenseForm
     onSubmit={[Function]}
   />
-</div>
+</styled.div>
 `;

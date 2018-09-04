@@ -1,37 +1,39 @@
 import styled from 'styled-components';
 
+const StyledPageWrapper = styled.div`
+  width: ${props => props.secondaryPage ? '80%' : '100%'}; 
+  margin: 0 auto;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;  
+`
+
 const H2 = styled.h2`
   margin: 0;
-  padding: 5%;
+  padding: 1rem 0;
+  text-align: center;
+  @media all and (min-width: 620px) {
+    text-align: left;
+  }
 `
 
 const StyledForm = styled.form`
   max-width: 500px;
-  padding: 0 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
 
   & > * {    
     width: 100%;
     margin: 10px 0;
   }
-
-  input {
-    width: 98%;
-  }
-
-  textarea {
-    width: 98%;
-    padding: 5px;
-  }
 `
 
 const Input = styled.input`
-  width: 98%;
-  height: 2.5rem;
+  width: 100%;
+  height: 50px;
   max-width: 500px;
+  margin: 10px 0;
   padding: 0 0 0 5px;
   @media all and (min-width: 1020px) {
     width: auto;
@@ -39,13 +41,14 @@ const Input = styled.input`
 `
 const Select = styled.select`
   width: 100%;
-  height: 3rem;
-  max-width: 508px;
+  height: 50px;
+  max-width: 500px;
   margin: 10px 0;
-  @media all and (min-width: 1020px) {
-    width: auto;
-    margin: 0 10px;
-  }
+  padding: 0 5px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background: #fff;
+  border: 1px solid #ccc;
 `
 const Button = styled.button`
   width: 150px;
@@ -58,13 +61,24 @@ const Button = styled.button`
   line-height: 1.5;
   color: #fff;
   background-color: ${props => props.negative ? '#dc3545' : '#176dff'};
+  border: 1px solid transparent;
   border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 5px 6px 0px, rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
   cursor: pointer;
-  transition: background-color .15s 
+  transition: all .15s 
   &:hover {
     background-color: ${props => props.negative ? '#c82333' : '#0069d9'};
-    transition: background-color .15s;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 8px 10px 0px, rgba(0, 0, 0, 0.15) 0px 4px 4px 0px;
+    transition: all .15s;
   }
 `
 
-export { H2, Input, Select, StyledForm, Button }
+
+
+
+
+
+
+
+
+export { StyledPageWrapper, H2, Input, Select, StyledForm, Button }

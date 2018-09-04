@@ -3,32 +3,74 @@
 exports[`Expense Summary Component should render properly with multiple expenses 1`] = `
 <styled.div>
   <h1>
-    Viewing 2 expenses totalling 
+    Viewing
+    <span>
+      2
+    </span>
+    expenses 
+    totalling
     <span>
       $0.20
     </span>
   </h1>
+  <div>
+    <Link
+      replace={false}
+      to="/create"
+    >
+      <Component />
+      Add Expense
+    </Link>
+  </div>
 </styled.div>
 `;
 
 exports[`Expense Summary Component should render properly with no expenses 1`] = `
 <styled.div>
   <h1>
-    Viewing 0 expenses totalling 
+    Viewing
+    <span>
+      0
+    </span>
+    expenses 
+    totalling
     <span>
       $0.00
     </span>
   </h1>
+  <div>
+    <Link
+      replace={false}
+      to="/create"
+    >
+      <Component />
+      Add Expense
+    </Link>
+  </div>
 </styled.div>
 `;
 
 exports[`Expense Summary Component should render properly with one expense 1`] = `
 <styled.div>
   <h1>
-    Viewing 1 expense totalling 
+    Viewing
+    <span>
+      1
+    </span>
+    expense 
+    totalling
     <span>
       $0.10
     </span>
   </h1>
+  <div>
+    <Link
+      replace={false}
+      to="/create"
+    >
+      <Component />
+      Add Expense
+    </Link>
+  </div>
 </styled.div>
 `;

@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Edit Expense Page should render properly 1`] = `
-<div>
+<styled.div
+  secondaryPage={true}
+>
   <styled.h2>
     Edit Expense
   </styled.h2>
@@ -20,13 +22,8 @@ exports[`Edit Expense Page should render properly 1`] = `
   <styled.button
     negative={true}
     onClick={[Function]}
-    style={
-      Object {
-        "margin": "10px 5%",
-      }
-    }
   >
     Remove Expense
   </styled.button>
-</div>
+</styled.div>
 `;

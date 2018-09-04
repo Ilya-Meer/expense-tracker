@@ -2,9 +2,9 @@
 
 exports[`Expense List should render expense list with expenses 1`] = `
 <styled.div>
-  <h2>
+  <styled.h2>
     Expense List
-  </h2>
+  </styled.h2>
   <div>
     <ExpenseListItem
       amount="2000000"
@@ -20,9 +20,9 @@ exports[`Expense List should render expense list with expenses 1`] = `
 
 exports[`Expense List should render expense list with prompt if given no expenses 1`] = `
 <styled.div>
-  <h2>
+  <styled.h2>
     Expense List
-  </h2>
+  </styled.h2>
   <div>
     <p>
       Add an Expense!

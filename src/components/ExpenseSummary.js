@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { MdAddCircleOutline } from 'react-icons/md';
 import numeral from 'numeral';
-import styled from 'styled-components';
+import { StyledSummary } from './StyledComponents/HomeDashboard';
 import getVisibleExpenses from '../selectors/expenses';
 import expenseTotal from '../selectors/expenseTotal';
 
@@ -11,46 +13,29 @@ class ExpenseSummary extends Component {
     super(props)
 
     this.sumExpenses = this.sumExpenses.bind(this);
-    this.formatString = this.formatString.bind(this);
   }
 
   sumExpenses(arr) {
     return numeral(expenseTotal(arr) / 100).format('$0,0.00');
   }
 
-  formatString() {
-    if (this.props.expenses.length === 0) {
-      return `Viewing 0 expenses totalling `
-    } else if (this.props.expenses.length === 1) {
-      return `Viewing 1 expense totalling `
-    } else {
-      return `Viewing ${this.props.expenses.length} expenses totalling `
-    }
-  }
-
   render() {
-    const Styled = styled.div`
-      width: 100%;
-      margin: 0 auto;
-
-      h1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.5rem;
-
-        span {
-          padding: 2rem 0;
-          font-size: 2rem;
-          color: #176ddf;
-        }
-      }
-    `
+    const word = this.props.expenses.length === 1 ? 'expense ' : 'expenses ';
     return (
-      <Styled>
-        <h1>{this.formatString()}<span>{this.sumExpenses(this.props.expenses)}</span></h1>
-      </Styled>
+      <StyledSummary>
+        <h1>
+          Viewing
+          <span>{this.props.expenses.length}</span>
+          {word}
+          totalling 
+          <span>{this.sumExpenses(this.props.expenses)}</span>
+        </h1>
+        <div>
+          <Link to="/create">
+            <MdAddCircleOutline/>Add Expense
+          </Link>
+        </div>
+      </StyledSummary>
     )
   }
 }

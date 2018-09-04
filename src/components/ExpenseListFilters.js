@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyledFilters } from './StyledComponents/HomeDashboard';
-import { Input, Select } from './StyledComponents/Shared';
+import { StyledFilters, SingleFilter } from './StyledComponents/HomeDashboard';
+import { Input, Select, H2 } from './StyledComponents/Shared';
 import { addTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate } from '../actions/filterActions';
 import { DateRangePicker } from 'react-dates';
 
@@ -39,33 +39,42 @@ class ExpenseListFilters extends Component {
     
     return(
       <StyledFilters>
-        <h2>Filters</h2>
+        <H2>Filters</H2>
         <div>  
-          <Input 
-            type="text" 
-            placeholder="Search..."
-            value={this.props.filters.text}
-            onChange={this.addTextFilter}
-          />
-          <Select 
-            name="sortByFilter" 
-            id="sortByFilter" 
-            defaultValue="date"
-            onChange={this.addSortFilter}>
-            <option value="date">Date</option>
-            <option value="amount">Amount</option>
-          </Select>
-          <DateRangePicker         
-            startDate={this.props.filters.startDate}
-            endDate={this.props.filters.endDate}
-            onDatesChange={this.handleDate}
-            focusedInput={this.state.calendarFocused}
-            onFocusChange={this.handleFocusChange}
-            numberOfMonths={1}
-            showClearDates={true}
-            isOutsideRange={() => false}
-            displayFormat='MMMM Do, YYYY'
-          />
+          <SingleFilter>
+            <label htmlFor="textInput">Text Filter</label>
+            <Input 
+              type="text" 
+              id="textInput"
+              value={this.props.filters.text}
+              onChange={this.addTextFilter}
+            />
+          </SingleFilter>
+          <SingleFilter>
+            <label htmlFor="sortByFilter">Sort By</label>
+            <Select 
+              name="sortByFilter" 
+              id="sortByFilter" 
+              defaultValue="date"
+              onChange={this.addSortFilter}>
+              <option value="date">Date</option>
+              <option value="amount">Amount</option>
+            </Select>
+          </SingleFilter>
+          <SingleFilter>
+            <label>Date Range</label>
+            <DateRangePicker         
+              startDate={this.props.filters.startDate}
+              endDate={this.props.filters.endDate}
+              onDatesChange={this.handleDate}
+              focusedInput={this.state.calendarFocused}
+              onFocusChange={this.handleFocusChange}
+              numberOfMonths={1}
+              showClearDates={true}
+              isOutsideRange={() => false}
+              displayFormat='MMMM Do, YYYY'
+            />
+          </SingleFilter>
         </div>
       </StyledFilters>
     )

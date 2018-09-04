@@ -13,6 +13,30 @@ const StyledNav = styled.nav`
   box-shadow: 0 1px 6px rgba(0,0,0,.16), 0 1px 6px rgba(0,0,0,.23);
   position: relative;
   
+  @media all and (min-width: 620px) {
+    li, a {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -32px;
+        right: -5px;
+        height: 3px;
+        width: 100%;
+        background-color: #fff;
+        opacity: 0;
+        transition: all .15s;
+      }
+      &:hover {
+       &::after {
+        opacity: 1;
+        transition: all .55s;
+       } 
+      }
+    }
+
+  }
+
   a {
     display: flex;
     align-items: center;
@@ -54,20 +78,31 @@ const StyledList = styled.ul`
     width: 150px;
     margin: 1rem 0;
     display: flex;
+    align-items: center;
     list-style: none;
     @media all and (min-width: 650px) {
       width: auto;
       margin: 0;
-      align-items: center;
     }
+  }
+
+  svg {
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 1.5rem;
   }
 `
 const HomeButton = styled(NavLink)`
-  width: 140px; 
   margin: 0 1rem;
   display: flex;
   justifyContent: space-between;
   color: #fff;
+
+  svg {
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
 `
 const Hamburger = styled.button`
   display: block;

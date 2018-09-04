@@ -3,13 +3,6 @@
 exports[`Header Component renders properly 1`] = `
 <styled.nav>
   <Styled(NavLink)
-    activeClassName="selected"
-    activeStyle={
-      Object {
-        "color": "#bcddff",
-        "textDecoration": "none",
-      }
-    }
     to="/dashboard"
   >
     <Component />
@@ -23,22 +16,6 @@ exports[`Header Component renders properly 1`] = `
   <styled.ul
     show={false}
   >
-    <li>
-      <NavLink
-        activeClassName="selected"
-        activeStyle={
-          Object {
-            "color": "#bcddff",
-            "textDecoration": "none",
-          }
-        }
-        aria-current="page"
-        to="/create"
-      >
-        <Component />
-        Add Expense
-      </NavLink>
-    </li>
     <li>
       <a
         href="https://github.com/Ilya-Meer/Expense-Tracker"

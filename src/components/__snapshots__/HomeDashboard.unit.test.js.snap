@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home Dashboard should render the Home Dashboard 1`] = `
-<styled.div>
+<styled.div
+  secondaryPage={false}
+>
   <Connect(ExpenseSummary) />
   <Connect(ExpenseListFilters) />
   <Connect(ExpenseList) />

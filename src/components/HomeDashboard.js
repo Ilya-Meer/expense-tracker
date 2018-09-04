@@ -1,24 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
+import { StyledPageWrapper } from './StyledComponents/Shared';
 import ExpenseList from './ExpenseList';
 import ExpenseSummary from './ExpenseSummary';
 import ExpenseListFilters from './ExpenseListFilters';
 
 
-const Styled = styled.div`
-  width: 85%;
-  margin: 0 auto;
-  padding: 3rem 0;
-  display: flex;
-  flex-direction: column;  
-`
 
 const HomeDashboard = () => (
-  <Styled>
+  <StyledPageWrapper secondaryPage={false}>
     <ExpenseSummary />
     <ExpenseListFilters />
     <ExpenseList />
-  </Styled>
+  </StyledPageWrapper>
 );
 
 export default HomeDashboard;

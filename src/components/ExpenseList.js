@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyledExpenseList } from './StyledComponents/HomeDashboard';
+import { H2 } from './StyledComponents/Shared'
 import getVisibleExpenses from '../selectors/expenses';
 import ExpenseListItem from './ExpenseListItem';
 
@@ -8,7 +9,7 @@ export const ExpenseList = (props) => {
   
   return (
     <StyledExpenseList>
-      <h2>Expense List</h2>
+      <H2>Expense List</H2>
       <div>
         {props.expenses.length === 0 ? (
           <p>Add an Expense!</p>
