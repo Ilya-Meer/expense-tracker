@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import  { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter, { history } from './routes'
@@ -26,7 +26,10 @@ const renderApp = () => {
   }
 }
 
-render(<p>Loading Expenses...</p>, root);
+render(
+  <div style={{width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <img src="/images/loader.gif" alt="Loader"/>
+  </div>, root);
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {

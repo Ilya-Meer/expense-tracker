@@ -45,9 +45,10 @@ const StyledNav = styled.nav`
 `
 const StyledList = styled.ul`
   width: 100%;
+  height: ${props => props.show === true ? 'calc(100vh - 116px)' : '0px'};
   margin: 0;
   padding: 3rem 0;
-  display: ${props => props.show === true ? 'flex' : 'none'};
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -55,8 +56,11 @@ const StyledList = styled.ul`
   top: 115px;
   right: 0;
   background: #fff;
+  opacity: ${props => props.show === true ? '1' : '0'};
+  transition: all .2s;
   @media all and (min-width: 650px) {
     width: 50%;
+    height: unset;
     margin: 0 2rem;
     padding: 0;
     display: flex;
@@ -64,6 +68,7 @@ const StyledList = styled.ul`
     justify-content: space-around;
     position: static;
     background: none;
+    opacity: 1;
   }
 
   li, a {
